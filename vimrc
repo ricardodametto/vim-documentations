@@ -1,3 +1,6 @@
+call plug#begin()
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()
 " ============================================================
 "  .vimrc - Configuração completa (IDE-like)
 "  Dependências: vim-plug, clangd, fzf, ripgrep, node.js (coc)
@@ -100,7 +103,12 @@ nnoremap <Esc> :nohlsearch<CR>
 " ------------------------------------------------------------
 set termguicolors            " cores 24-bit (requer terminal compatível)
 set background=dark
-colorscheme gruvbox
+" no lugar das linhas de aparência atuais, troque por:
+try
+  colorscheme gruvbox
+catch
+  colorscheme desert       " fallback nativo do vim
+endtry
 
 " Airline
 let g:airline_theme = 'gruvbox'
